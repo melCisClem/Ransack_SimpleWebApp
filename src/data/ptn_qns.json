@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "Your alarm rings at 7am. You have an important exam today, but you stayed up late studying. What do you do?",
+    "options": [
+      { "text": "Hit snooze and skip the exam", "points": 0 },
+      { "text": "Get up, eat a proper breakfast, and head out on time", "points": 4 },
+      { "text": "Stay in bed and cram on your phone", "points": 1 },
+      { "text": "Get up late and grab a snack on the way", "points": 2 }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "A classmate asks to copy your homework because they ran out of time. What do you do?",
+    "options": [
+      { "text": "Say no and walk away", "points": 2 },
+      { "text": "Let them copy the whole thing", "points": 0 },
+      { "text": "Let them look at just one answer", "points": 1 },
+      { "text": "Say no, but offer to explain the topic so they can do it themselves", "points": 4 }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "You find a wallet with cash and an ID on the school corridor floor. What do you do?",
+    "options": [
+      { "text": "Pick it up and keep it safe until you can find out whose it is", "points": 2 },
+      { "text": "Leave it where it is", "points": 1 },
+      { "text": "Hand it in to the front office so it can be returned", "points": 4 },
+      { "text": "Keep the whole wallet", "points": 0 }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "You have a group project due Friday and your teammates are not replying to messages. What do you do?",
+    "options": [
+      { "text": "Remove their names from the project", "points": 0 },
+      { "text": "Wait until Thursday and hope they reply", "points": 1 },
+      { "text": "Quietly do all the work yourself", "points": 2 },
+      { "text": "Check in again, share your progress, and ask your teacher for help if needed", "points": 4 }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "You have saved up some money. Your phone is working fine, but a new model just launched. What do you do?",
+    "options": [
+      { "text": "Keep your current phone and put the money into savings", "points": 4 },
+      { "text": "Spend it all on snacks for the week", "points": 1 },
+      { "text": "Buy the new phone on credit right away", "points": 0 },
+      { "text": "Treat yourself to something small and save the rest", "points": 2 }
+    ]
+  }
+]

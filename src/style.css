@@ -22,6 +22,7 @@ body {
   text-align: center;
 }
 
+.placeholder h2,
 .placeholder h1,
 .placeholder p {
   background: rgba(255, 255, 255, 0.85);

@@ -1,5 +1,6 @@
 import './style.css'
 import questions from './data/questions.json'
+import ptn_qns from './data/ptn_qns.json'
 
 // This placeholder only proves your setup works.
 // Replace it with your own app.
@@ -10,6 +11,10 @@ import questions from './data/questions.json'
 //     <p>Replace this screen with your app.</p>
 //   </main>
 // `
+
+// the 2 game's "shared" vars
+let teamName = localStorage.getItem('teamName') || ''
+let currentIndex = 0
 
 function showStartScreen() {
   document.querySelector('#app').innerHTML = `
@@ -22,10 +27,10 @@ function showStartScreen() {
     </main>
   `
 
-  let teamName = ''
   document.querySelector('#name-form').addEventListener('submit', (e) => {
     e.preventDefault()
     teamName = document.querySelector('#text-input').value.trim()
+    localStorage.setItem('teamName', teamName)
     //console.log(teamName)
     if (!teamName) return
     showChoiceScreen()
@@ -52,15 +57,63 @@ function showChoiceScreen() {
   })
 }
 
-
+// ptn game
 // 5 rds so max score of 5*4=20 so win is ptns >= 16
 let points = 0 // +4 +2 +1 +0
 function showPtnGame() {
-  
+  currentIndex = 0
+  points = 0
+  showPtnQn()
 }
 
+function showPtnQn() {
+  const q = ptn_qns[currentIndex]
 
-let currentIndex = 0
+  document.querySelector('#app').innerHTML = `
+    <main class="placeholder">
+      <p>Question ${currentIndex + 1} of ${ptn_qns.length}</p>
+      <h2>${q.question}</h2>
+      ${q.options
+        .map((opt, i) => `<button class="option" data-index="${i}">${opt.text}</button>`)
+        .join('')}
+    </main>
+  `
+
+  document.querySelectorAll('.option').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const chosen = q.options[Number(btn.dataset.index)]
+      points += chosen.points
+
+      currentIndex++
+      if (currentIndex < ptn_qns.length) {
+        showPtnQn()
+      } else {
+        showPtnResult()
+      }
+    })
+  })
+}
+
+function showPtnResult() {
+  document.querySelector('#app').innerHTML = `
+    <main class="placeholder">
+      <h1>Done!</h1>
+      <p>You got ${points} points</p>
+      <button id="end">end</button>
+    </main>
+  `
+  win = points >= 16
+
+  document.querySelector('#end').addEventListener('click', () => {
+    if (win) {
+      showWinScreen()
+    } else {
+      showLoseScreen()
+    }
+  })
+}
+
+// quiz game
 let score = 0
 function showQuizGame() {
   currentIndex = 0
@@ -105,11 +158,7 @@ function showResult() {
       <button id="end">end</button>
     </main>
   `
-  if (score >= 4){
-    win = true
-  } else {
-    win = false
-  }
+  win = score >= 4
 
   document.querySelectorAll('#end').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -126,7 +175,7 @@ function showWinScreen() {
   document.body.className = 'win'
   document.querySelector('#app').innerHTML = `
     <main class="placeholder">
-      <h1>You Win</h1>
+      <h1>${teamName} Wins</h1>
     </main>
   `
 }
@@ -135,7 +184,7 @@ function showLoseScreen() {
   document.body.className = 'lose'
   document.querySelector('#app').innerHTML = `
     <main class="placeholder">
-      <h1>You Lose</h1>
+      <h1>Try Again Next Time ,${teamName}</h1>
     </main>
   `
 }
