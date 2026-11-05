@@ -53,7 +53,12 @@ You can use any framework or library, as long as `npm install` and `npm run dev`
 Replace this section before you submit.
 
 - **What I prioritised, and why:**
+fun and me learning javascript as i havent used it since poly
 - **What I left out or didn't finish, and why:**
+the styling as im not a designer
 - **Time planned vs. time spent:**
+time planned (planned on spending on this?): 2hrs vs actual time spent: 3hrs
 - **How I used AI** (and one suggestion I changed or didn't use):
+as google to learn javascript and to grab qns for ptn game 
 - **Anything I'm unsure about:**
+nil
